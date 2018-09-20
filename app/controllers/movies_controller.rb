@@ -12,7 +12,7 @@ class MoviesController < ApplicationController
 
   def index
     
-    @all_ratings = Movies.pluck(:rating).distinct
+    @all_ratings = Movie.all_ratings
 
     if (params[:sort])
       @sortby = params[:sort].to_s
