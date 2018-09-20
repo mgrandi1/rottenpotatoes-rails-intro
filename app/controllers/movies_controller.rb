@@ -15,6 +15,7 @@ class MoviesController < ApplicationController
       @movies = Movie.order(:title)
     else
       @movies = Movie.all
+    end
   end
 
   def new
