@@ -12,8 +12,7 @@ class MoviesController < ApplicationController
 
   def index
     
-    @all_ratings = ['G','PG','PG-13','R']
-    #Movies.pluck(:rating).distinct
+    @all_ratings = Movie.order(:rating).select(:rating).map(&:rating).uniq    #Movies.pluck(:rating).distinct
     
     if (params[:sort])
       @sortby = params[:sort].to_s
