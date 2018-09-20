@@ -11,6 +11,9 @@ class MoviesController < ApplicationController
   end
 
   def index
+    
+    @all_ratings = Movies.pluck(:rating).uniq
+    
     if (params[:sort])
       @sortby = params[:sort].to_s
       @movies = Movie.order(@sortby)
