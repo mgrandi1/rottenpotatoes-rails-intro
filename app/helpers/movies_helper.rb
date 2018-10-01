@@ -8,9 +8,9 @@ module MoviesHelper
     return true if selectedRatings.nil?
     selectedRatings.include? rating
   end
-  def hilite(column)
+  def hilight(column)
     if(session[:sort].to_s == column)
-      return 'hilite'
+      return 'hilight'
     else
       return nil
     end
