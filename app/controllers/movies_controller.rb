@@ -11,7 +11,7 @@ class MoviesController < ApplicationController
   end
 
    def index
-    @all_ratings = Movie.ratings
+    @all_ratings = Movie.all_ratings
     session[:ratings] = params[:ratings] unless params[:ratings].nil?
     session[:sort] = params[:sort] unless params[:sort].nil?
 
