@@ -1,23 +1,20 @@
 -#  This file is app/views/movies/index.html.haml
 %h1 All Movies
 
-= form_tag movies_path, :id => 'ratings_form', :method => :get do
+= form_tag movies_path, :method => :get do
   Include:
   - @all_ratings.each do |rating|
     = rating
-    = check_box_tag "ratings[#{rating}]", 1, chosen_rating?(rating), id: "ratings_#{rating}"
-  = submit_tag 'Refresh', id: "ratings_submit"
-
-%table#movies
+    = check_box_tag "ratings[#{rating}]", 1, selected?(rating), id: "ratings_#{rating}"
+  = submit_tag 'Refresh'
+  
+  %table#movies
   %thead
     %tr
-      %th{:class => hilite('title')}
-        %a#title_header{:href => movies_path({:sort => 'title'})} Movie Title
-      %th{:class => hilite('rating')}
-        %a{:href => movies_path({sort:  'rating'})} Rating
-      %th{:class => hilite('release_date')}
-        %a#release_date_header{:href => movies_path({:sort => 'release_date'})} Release Date
-      %th More Info
+      %th{:id=> 'title_header', :class=>("hilite" if @sort_column == "title")}= link_to "Movie Title", movies_path(:sort=> 'title')
+      %th{:id=> 'title_header', :class=>("hilite" if @sort_column == "title")}=Lsor()Lsor:sort=> ''title
+      %th{:id=> 'release_date_header', :class=>("hilite" if @sort_column == "release_date")}= link_to "Release Date", movies_path(:sort=> 'release_date')
+      %th{:id=> 'release_date_header', :class=>("hilite" if @sort_column == "release_date")}=link_to ""Release Date, movies_path():sort=> 'release_date'
   %tbody
     - @movies.each do |movie|
       %tr
