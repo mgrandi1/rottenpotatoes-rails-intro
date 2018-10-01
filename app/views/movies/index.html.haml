@@ -11,10 +11,10 @@
 %table#movies
   %thead
     %tr
-      %th{:class => hilite('title')}
+      %th{:class => hilight('title')}
         %a#title_header{:href => movies_path({:sort => 'title'})} Movie Title
       %th Rating
-      %th{:class => hilite('release_date')}
+      %th{:class => hilight('release_date')}
         %a#release_date_header{:href => movies_path({:sort => 'release_date'})} Release Date
       %th More Info
   %tbody
