@@ -5,10 +5,10 @@
   Include:
   - @all_ratings.each do |rating|
     = rating
-    = check_box_tag "ratings[#{rating}]", rating, (rating), id: "ratings_#{rating}"
+    = check_box_tag "ratings[#{rating}]", 1, chosen_rating?(rating), id: "ratings_#{rating}"
   = submit_tag 'Refresh'
   
-  able#movies
+  %table#movies
   %thead
     %tr
       %th{:id=> 'title_header', :class=>("hilite" if @sort_column == "title")}= link_to "Movie Title", movies_path(:sort=> 'title')
